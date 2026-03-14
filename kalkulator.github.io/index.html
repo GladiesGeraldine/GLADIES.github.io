@@ -1,0 +1,154 @@
+<html>
+    <head>
+        <title>PROGRAM KALKULATOR</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #e8f5e9;
+                padding: 50px;
+                text-align: center;
+            }
+
+            table {
+                margin: 0 auto;
+                border-spacing: 10px;
+            }
+
+            td {
+                padding: 10px;
+            }
+
+            input {
+                width: 240px;
+                height: 40px;
+                font-size: 20px;
+                text-align: right;
+                padding: 10px;
+                border-radius: 5px;
+                border: 2px solid #388e3c;
+                background-color: #ffffff;
+            }
+
+            button {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                background-color: #81c784;
+                color: #ffffff;
+                border: 1px solid #66bb6a;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            button:hover {
+                background-color: #66bb6a;
+            }
+
+            button:active {
+                background-color: #388e3c;
+            }
+
+            b {
+                font-size: 24px;
+                color: #388e3c;
+            }
+
+            button:nth-child(4), button:nth-child(8), button:nth-child(12), button:nth-child(16) {
+                background-color: #43a047;
+                color: white;
+            }
+
+            button:nth-child(4):hover, button:nth-child(8):hover, button:nth-child(12):hover, button:nth-child(16):hover {
+                background-color: #388e3c;
+            }
+
+            button:nth-child(4):active, button:nth-child(8):active, button:nth-child(12):active, button:nth-child(16):active {
+                background-color: #2c6e2f;
+            }
+
+            button:nth-child(17) {
+                background-color: #66bb6a;
+                color: white;
+            }
+
+            button:nth-child(17):hover {
+                background-color: #5caa60;
+            }
+
+            button:nth-child(17):active {
+                background-color: #4d914f;
+            }
+
+            button:nth-child(15) {
+                background-color: #388e3c;
+                color: white;
+            }
+
+            button:nth-child(15):hover {
+                background-color: #2c6e2f;
+            }
+
+            button:nth-child(15):active {
+                background-color: #1b5e20;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <b>PROGRAM KALKULATOR</b>
+            <br><br>
+
+            <table border="1">
+                <tr>
+                    <td colspan="4"><input id="layar" readonly></input></td>
+                </tr>
+                <tr>
+                    <td><button onclick="tekanAngka('1')">1</button></td>
+                    <td><button onclick="tekanAngka('2')">2</button></td>
+                    <td><button onclick="tekanAngka('3')">3</button></td>
+                    <td><button onclick="tekanAngka('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="tekanAngka('4')">4</button></td>
+                    <td><button onclick="tekanAngka('5')">5</button></td>
+                    <td><button onclick="tekanAngka('6')">6</button></td>
+                    <td><button onclick="tekanAngka('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="tekanAngka('7')">7</button></td>
+                    <td><button onclick="tekanAngka('8')">8</button></td>
+                    <td><button onclick="tekanAngka('9')">9</button></td>
+                    <td><button onclick="tekanAngka('*')">*</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="hapus()">C</button></td>
+                    <td><button onclick="tekanAngka('0')">0</button></td>
+                    <td><button onclick="hitung()">=</button></td>
+                    <td><button onclick="tekanAngka('/')">/</button></td>
+                </tr>
+            </table>
+        </center>
+
+        <script>
+            function tekanAngka(angka){
+                var layar = document.getElementById("layar");
+                layar.value += angka;
+            }
+
+            function hapus(){
+                var layar = document.getElementById("layar");
+                layar.value = '';
+            }
+
+            function hitung(){
+                var layar = document.getElementById("layar");
+                try {
+                    layar.value = eval(layar.value); 
+                } catch (e) {
+                    layar.value = 'Error'; 
+                }
+            }
+        </script>
+    </body>
+</html>
